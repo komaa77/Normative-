@@ -4,8 +4,8 @@ import Home from './pages/Home';
 import SignUp from "./pages/Signup";
 import Login from './pages/Login';
 import Wishlist from './pages/wishlist';
-import Layout from './Layout/Layout';
 import Cart from './pages/Cart';
+import Layout from './layoutt/Layout';
 
 const App = () => {
   return (
