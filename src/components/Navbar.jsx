@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import svg from '../assets/Component.svg'
 import svg1 from '../assets/Heart.svg'
 import svg2 from '../assets/Buy.svg'
 import svg3 from '../assets/user.svg'
 import { Link } from 'react-router-dom';
+import { WishlistContext } from '../wishlistcontext'
 
 
 const Navbar = () => {
+    const {wishlist} = useContext(WishlistContext)
     return (
         <div className='header-box'>
             <div className="logo">
@@ -36,6 +38,9 @@ const Navbar = () => {
                    <path d="M3 5H7L10 22H26" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                    <path d="M10 16.6667H25.59C25.7056 16.6667 25.8177 16.6267 25.9072 16.5535C25.9966 16.4802 26.0579 16.3782 26.0806 16.2648L27.8806 7.26479C27.8951 7.19222 27.8934 7.11733 27.8755 7.04552C27.8575 6.97371 27.8239 6.90678 27.7769 6.84956C27.73 6.79234 27.6709 6.74625 27.604 6.71462C27.5371 6.68299 27.464 6.66661 27.39 6.66666H8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+                  {wishlist.length > 0 && (
+                    <span className="cart-count">{wishlist.length}</span>
+                  )}
                 </Link>
                 <div class="user__icon-modal">
                 <input type="checkbox" class="user__check" id="user__check"/>

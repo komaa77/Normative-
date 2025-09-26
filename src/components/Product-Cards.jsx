@@ -36,6 +36,7 @@ const ProductCard = ({ product }) => {
 
     setCartItems(updated);
     localStorage.setItem("cartItems", JSON.stringify(updated));
+    window.dispatchEvent(new Event("storage"))
   };
 
   return (

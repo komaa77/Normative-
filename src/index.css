@@ -1556,17 +1556,25 @@ cursor: pointer;
     transition: all 0.3s ease;
   }
   
-  .toast-message.error {
-    background: #e74c3c;
-  }
-  
-  .toast-message.info {
-    background: #2ecc71;
-  }
 
-  
+
+.cart-count{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 190px;
+    top: 100px;
+    border-radius: 50%;
+    background-color: #DB4444;
+    opacity: 1;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
   .card__links{
-    margin-top: 160px;
+    margin-top: 80px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1580,6 +1588,12 @@ cursor: pointer;
     text-decoration: none;
     color: #7f7f7f;
 }
+
+.cardpage{
+    border-top: 0.5px solid gray;
+    margin-top: 20px;
+}
+
 
 .card__cart{
     font-family: sans-serif;
@@ -1635,6 +1649,11 @@ cursor: pointer;
     position: absolute;
     left: -10px;
     top: -10px;
+}
+.tv__icon1{
+    position: absolute;
+    left: -10px;
+    top: -3px;
 }
 .price__card{
     margin-left: 189px;

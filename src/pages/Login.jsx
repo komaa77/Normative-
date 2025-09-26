@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
-    <Layout>
       <section className="signup">
         <div className="sign__main">
           <div className="sign__over">
@@ -31,7 +30,6 @@ const Login = () => {
           </div>
         </div>
       </section>
-    </Layout>
   );
 };
 
