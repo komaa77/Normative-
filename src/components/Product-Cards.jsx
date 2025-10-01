@@ -6,16 +6,23 @@ import img4 from "../assets/Frame 614 (1).png";
 import svg11 from "../assets/Quick View.svg";
 import svg13 from "../assets/Vector (5).svg";
 
-// Bu bitta mahsulot kartasi
+
 const ProductCard = ({ product }) => {
   const [isAdded, setIsAdded] = useState(false);
+  const [wishlist, setWishlist] = useState(
+    JSON.parse(localStorage.getItem("wishlistItems")) || []
+  );
 
+  const isLiked = wishlist.some((item) => item.id === product.id);
+
+  // Savatda bormi yo‘qmi – tekshirish
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("cartItems")) || [];
     const exists = stored.some((item) => item.id === product.id);
     setIsAdded(exists);
   }, [product.id]);
 
+  // Savatga qo‘shish / o‘chirish
   const toggleCart = () => {
     let stored = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -24,7 +31,7 @@ const ProductCard = ({ product }) => {
       alert(`${product.name} savatdan olib tashlandi!`);
     } else {
       stored.push(product);
-      alert(`${product.name} savatga qoshildi!`);
+      alert(`${product.name} savatga qo‘shildi!`);
     }
 
     localStorage.setItem("cartItems", JSON.stringify(stored));
@@ -32,28 +39,21 @@ const ProductCard = ({ product }) => {
     window.dispatchEvent(new Event("storage"));
   };
 
+  // Wishlistga qo‘shish / o‘chirish
+  const toggleWishlist = () => {
+    let updated;
+    if (isLiked) {
+      updated = wishlist.filter((item) => item.id !== product.id);
+      alert(`${product.name} sevimlilardan o‘chirildi!`);
+    } else {
+      updated = [...wishlist, product];
+      alert(`${product.name} sevimlilarga qo‘shildi!`);
+    }
 
-    const [wishlist, setWishlist] = useState(
-      JSON.parse(localStorage.getItem("wishlistItems")) || []
-    );
-    const isLiked = wishlist.some((item) => item.id === product.id);
-  
-    const toggleWishlist = () => {
-      let updated;
-      if (isLiked) {
-        updated = wishlist.filter((item) => item.id !== product.id);
-        alert(`${product.name} sevimlilardan o‘chirildi!`);
-      } else {
-        updated = [...wishlist, product];
-        alert(`${product.name} sevimlilarga qo‘shildi!`);
-      }
-  
-      setWishlist(updated);
-      localStorage.setItem("wishlistItems", JSON.stringify(updated));
-  
-      // WishlistPage yangilanishi uchun event
-      window.dispatchEvent(new Event("storage"));
-    };
+    setWishlist(updated);
+    localStorage.setItem("wishlistItems", JSON.stringify(updated));
+    window.dispatchEvent(new Event("storage"));
+  };
 
   return (
     <div className="product__item">
@@ -99,8 +99,7 @@ const ProductCard = ({ product }) => {
   );
 };
 
-// Bu esa barcha mahsulotlar ro‘yxati
-const ProductCards = () => {
+const ProductCards  = ({ showButton = true }) => {
   const products = [
     { id: 1, name: "HAVIT HV-G92 Gamepad", price: 120, img: img1 },
     { id: 2, name: "AK-900 Wired Keyboard", price: 960, img: img2 },
@@ -119,7 +118,7 @@ const ProductCards = () => {
             ))}
           </div>
         </div>
-        <button className="btn">View All Products</button>
+        { showButton && <button className="btn">View All Products</button>}
       </div>
     </section>
   );

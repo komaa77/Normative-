@@ -61,8 +61,11 @@ const FlashSales = () => {
       <div className="container">
         <div className="sales__top">
           <div className="section__title">
+            <div className="main-text">
+
             <div className="red__icon">
               <p className="section__text">Today’s</p>
+            </div>
             </div>
             <div className="section__main">
               <div className="flash_text">
