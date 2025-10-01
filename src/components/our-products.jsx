@@ -13,14 +13,14 @@ import arrow from '../assets/icons arrow-right (2).svg';
 import arrow2 from '../assets/icons_arrow-left.svg';
 
 const products = [
-  { id: 1, name: "Breed Dry Dog Food", price: "$100", image: dog, rating: 3, reviews: 35 },
-  { id: 2, name: "CANON EOS DSLR Camera", price: "$360", image: camera, rating: 4, reviews: 95 },
+  { id: 1, name: "Breed Dry Dog Food", price: "$100", image: dog, rating: 5, reviews: 35 },
+  { id: 2, name: "CANON EOS DSLR Camera", price: "$360", image: camera, rating: 5, reviews: 95 },
   { id: 3, name: "ASUS FHD Gaming Laptop", price: "$700", image: note, rating: 5, reviews: 325 },
-  { id: 4, name: "Breed Dry Dog Food", price: "$100", image: dog, rating: 3, reviews: 35 },
+  { id: 4, name: "Breed Dry Dog Food", price: "$100", image: dog, rating: 5, reviews: 35 },
   { id: 5, name: "Kids Electric Car", price: "$960", image: car, rating: 5, reviews: 65, colors: ["#FB1314", "#db4444"] },
   { id: 6, name: "Jr. Zoom Soccer Cleats", price: "$1160", image: bots, rating: 5, reviews: 35, colors: ["#EEFF61", "#db4444"] },
-  { id: 7, name: "GP11 Shooter USB Gamepad", price: "$660", image: ps, rating: 4, reviews: 55, colors: ["#000", "#db4444"] },
-  { id: 8, name: "Quilted Satin Jacket", price: "$660", image: coat, rating: 4, reviews: 55, colors: ["#184A48", "#db4444"] },
+  { id: 7, name: "GP11 Shooter USB Gamepad", price: "$660", image: ps, rating: 5, reviews: 55, colors: ["#000", "#db4444"] },
+  { id: 8, name: "Quilted Satin Jacket", price: "$660", image: coat, rating: 5, reviews: 55, colors: ["#184A48", "#db4444"] },
 ];
 
 const OurProducts = () => {
@@ -49,7 +49,7 @@ const OurProducts = () => {
     }
 
     setCartItems(updated);
-    localStorage.setItem("cartItems", JSON.stringify(updated));
+    localStorage.setItem("wishlist", JSON.stringify(updated));
   };
 
   return (
@@ -104,7 +104,7 @@ const OurProducts = () => {
                     {[...Array(item.rating)].map((_, i) => (
                         <img key={i} src={svg13} alt="star" />
                     ))}
-                    <span className="best__number">({item.reviews})</span>
+                    <span className="best__number1">({item.reviews})</span>
                   </div>
 
                   {item.colors && (

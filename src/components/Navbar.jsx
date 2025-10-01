@@ -3,7 +3,7 @@ import svg from '../assets/Component.svg'
 import svg1 from '../assets/Heart.svg'
 import svg2 from '../assets/Buy.svg'
 import svg3 from '../assets/user.svg'
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { WishlistContext } from '../wishlistcontext'
 
 
@@ -14,15 +14,43 @@ const Navbar = () => {
             <div className="logo">
                 <p className="logo__text">Exclusive</p>
             </div>
-
-            <nav className="navbar">
-              <ul className="menu">
-                <li><Link className="active" to="/">Home</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/sign">Sign Up</Link></li>
-              </ul>
-            </nav>
+        <nav className="navbar">
+            <ul className="menu">
+              <li>
+                <NavLink 
+                  to="/" 
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  end
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink 
+                  to="/contact" 
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  Contact
+                </NavLink>
+              </li>
+              <li>
+                <NavLink 
+                  to="/about" 
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  About
+                </NavLink>
+              </li>
+              <li>
+                <NavLink 
+                  to="/sign" 
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  Sign Up
+                </NavLink>
+              </li>
+            </ul>
+        </nav>
             <div className="search">
                 <input type="text" placeholder="What are you looking for?"/>
                    <button className="search__button">
@@ -30,8 +58,12 @@ const Navbar = () => {
                     </button>
             </div>
             <div className='icons'>
-                <img src={svg1} alt="heart icon" />
-                <Link to= "/wishlist">
+           <Link to="/wishlist">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+           </Link>   
+                <Link to= "/cart">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                    <path d="M11 27C11.5523 27 12 26.5523 12 26C12 25.4477 11.5523 25 11 25C10.4477 25 10 25.4477 10 26C10 26.5523 10.4477 27 11 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                    <path d="M25 27C25.5523 27 26 26.5523 26 26C26 25.4477 25.5523 25 25 25C24.4477 25 24 25.4477 24 26C24 26.5523 24.4477 27 25 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

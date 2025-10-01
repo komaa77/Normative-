@@ -83,7 +83,7 @@ const Bestproduct = () => {
                   {[...Array(item.rating)].map((_, i) => (
                     <img key={i} src={svg13} alt="star" />
                   ))}
-                  <span className="best__number">({item.reviews})</span>
+                  <span className="best__number1">({item.reviews})</span>
                 </div>
               </div>
             </div>

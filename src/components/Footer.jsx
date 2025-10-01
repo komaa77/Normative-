@@ -40,13 +40,13 @@ const Footer = () => {
                     <h3 class="footer__section-title">Account</h3>
                     <ul class="footer__menu">
                         <li class="footer__links">
-                            <a href="">My Account</a>
+                            <Link to="/account">My Account</Link>
                         </li>
                         <li class="footer__links">
                             <a href="">Login / Register</a>
                         </li>
                         <li class="footer__links">
-                            <Link to="/cart">Cart</Link>
+                            <a href="">Cart</a>
                         </li>
                         <li class="footer__links">
                             <a href="">Wishlist</a>
