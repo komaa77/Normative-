@@ -8,7 +8,6 @@ import ProductCards from '../components/Product-Cards'
 
 
 const Lastp = () => {
-    // 🔹 State’lar
     const [bigImage, setBigImage] = useState(pss4);
     const [selectedColor, setSelectedColor] = useState(null);
     const [selectedSize, setSelectedSize] = useState("M");
@@ -16,27 +15,18 @@ const Lastp = () => {
     const basePrice = 198;
   
     const smallImages = [pss, pss1, pss2, pss3];
-  
-    // 🔹 Narx hisoblash
     const totalPrice = (basePrice * quantity).toFixed(2);
-  
-    // 🔹 Rang tanlash
     const handleColorSelect = (color) => {
       setSelectedColor(color);
     };
-  
-    // 🔹 O‘lcham tanlash
     const handleSizeSelect = (size) => {
       setSelectedSize(size);
     };
-  
-    // 🔹 Soni + -
     const updateQuantity = (newQuantity) => {
       if (newQuantity < 1) return;
       setQuantity(newQuantity);
     };
-  
-    // 🔹 Buy Now bosilganda
+
     const handleBuy = () => {
       if (!selectedColor) {
         alert("Iltimos rangni tanlang!");
@@ -60,7 +50,6 @@ const Lastp = () => {
   
     return (
       <>
-        {/* Breadcrumb */}
         <section className="about">
           <div className="container">
             <div className="about__breadcrumb">
@@ -81,11 +70,9 @@ const Lastp = () => {
           </div>
         </section>
   
-        {/* Product Section */}
         <section className="product__image-section">
             <div className='container'>
             <div className="product__cover">
-              {/* Images */}
               <div className="main__image">
                 {smallImages.map((img, i) => (
                   <div
@@ -104,7 +91,6 @@ const Lastp = () => {
                 </div>
               </div>
   
-              {/* Info */}
               <div className="product__info">
                 <div className="product__info-top">
                   <h1 className="product-title">Havic HV G-92 Gamepad</h1>
@@ -116,7 +102,6 @@ const Lastp = () => {
                   </p>
                 </div>
   
-                {/* Colors */}
                 <div className="product__info-bottom">
                   <div className="product__colors">
                     <h3 className="colors__text">Colours:</h3>
@@ -137,7 +122,6 @@ const Lastp = () => {
                   </div>
                 </div>
   
-                {/* Sizes */}
                 <div className="product__sizes">
                   <p className="size__text">Size:</p>
                   <div className="size__btns">
@@ -155,7 +139,6 @@ const Lastp = () => {
                   </div>
                 </div>
   
-                {/* Quantity */}
                 <div className="product__quantity">
                   <div className="quantity__btns">
                     <button className="minus" onClick={() => updateQuantity(quantity - 1)}>

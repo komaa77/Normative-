@@ -5,7 +5,7 @@ import png from "../assets/Iphone.png";
 
 export default function Slider() {
   const [current, setCurrent] = useState(0);
-  const slides = [1, 2, 3, 4, 5]; // slayderlar soni
+  const slides = [1, 2, 3, 4, 5];
 
   useEffect(() => {
     const interval = setInterval(() => {

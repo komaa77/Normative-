@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import JBL from "../assets/JBL.png";
 
 const Offercard = () => {
-  // 🔹 Aksiya tugash sanasini belgilaymiz (3 kun keyinga)
   const [targetDate] = useState(new Date().getTime() + 3 * 24 * 60 * 60 * 1000);
 
   const [timeLeft, setTimeLeft] = useState({

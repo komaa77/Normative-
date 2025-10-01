@@ -15,14 +15,12 @@ const ProductCard = ({ product }) => {
 
   const isLiked = wishlist.some((item) => item.id === product.id);
 
-  // Savatda bormi yo‘qmi – tekshirish
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("cartItems")) || [];
     const exists = stored.some((item) => item.id === product.id);
     setIsAdded(exists);
   }, [product.id]);
 
-  // Savatga qo‘shish / o‘chirish
   const toggleCart = () => {
     let stored = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -39,7 +37,6 @@ const ProductCard = ({ product }) => {
     window.dispatchEvent(new Event("storage"));
   };
 
-  // Wishlistga qo‘shish / o‘chirish
   const toggleWishlist = () => {
     let updated;
     if (isLiked) {

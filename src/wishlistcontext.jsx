@@ -5,13 +5,11 @@ export const WishlistContext = createContext();
 export const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
 
-  // Sahifa birinchi marta ochilganda localStorage’dan wishlistni olish
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("wishlistItems")) || [];
     setWishlist(saved);
   }, []);
 
-  // Wishlistga qo‘shish
   const addToWishlist = (product) => {
     const exists = wishlist.some((item) => item.id === product.id);
     if (!exists) {
@@ -21,7 +19,6 @@ export const WishlistProvider = ({ children }) => {
     }
   };
 
-  // Wishlistdan o‘chirish
   const removeFromWishlist = (id) => {
     const updated = wishlist.filter((item) => item.id !== id);
     setWishlist(updated);

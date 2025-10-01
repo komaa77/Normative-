@@ -1,5 +1,5 @@
 import svg4 from "../assets/DropDown.svg";
-import Slider from "./Slider"; // import qildik
+import Slider from "./Slider"; 
 
 const Main = () => {
   return (

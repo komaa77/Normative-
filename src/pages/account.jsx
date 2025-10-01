@@ -34,7 +34,6 @@ export default function AccountProfile() {
     setAddress(saved.address || "");
   }, []);
 
-  // Cancel -> restore original values and clear password inputs & messages
   const handleCancel = (e) => {
     e.preventDefault();
     setFirstName(initialUser.firstName || "");
@@ -48,18 +47,15 @@ export default function AccountProfile() {
     setSuccess("");
   };
 
-  // Basic email validation
   const isValidEmail = (em) => {
     return /\S+@\S+\.\S+/.test(em);
   };
 
-  // Save handler
   const handleSave = (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
 
-    // Validate basic profile fields
     if (!firstName.trim() || !lastName.trim()) {
       setError("First name va Last name to'ldirilishi kerak.");
       return;
@@ -69,21 +65,17 @@ export default function AccountProfile() {
       return;
     }
 
-    // Password change flow: agar foydalanuvchi newPassword yoki confirmPassword kiritgan bo'lsa -> treat as password change attempt
     const wantsPasswordChange = newPassword !== "" || confirmPassword !== "" || currentPassword !== "";
 
     if (wantsPasswordChange) {
-      // current password required
       if (!currentPassword) {
         setError("Agar parolni o'zgartirmoqchi bo'lsangiz, joriy parolni kiriting.");
         return;
       }
-      // check current password matches stored one
       if (currentPassword !== initialUser.password) {
         setError("Joriy parol noto'g'ri.");
         return;
       }
-      // new password validation
       if (newPassword.length < 6) {
         setError("Yangi parol kamida 6 ta belgidan iborat bo'lishi kerak.");
         return;
@@ -94,7 +86,6 @@ export default function AccountProfile() {
       }
     }
 
-    // hammasi ok -> yangilanadi
     const updated = {
       ...initialUser,
       firstName: firstName.trim(),
@@ -104,17 +95,14 @@ export default function AccountProfile() {
       password: wantsPasswordChange ? newPassword : initialUser.password,
     };
 
-    // save to localStorage
     localStorage.setItem("userProfile", JSON.stringify(updated));
     setInitialUser(updated);
 
-    // clear password inputs
     setCurrentPassword("");
     setNewPassword("");
     setConfirmPassword("");
 
     setSuccess("Ma'lumotlar saqlandi.");
-    // avtomatik success messageni bir ozdan keyin olib tashlash
     setTimeout(() => setSuccess(""), 3000);
   };
 
@@ -138,7 +126,6 @@ export default function AccountProfile() {
         </div>
 
         <div className="account__overall" style={{ display: "flex", gap: 24 }}>
-          {/* left nav */}
           <div className="account__nav" style={{ width: 240 }}>
             <div className="account__section">
               <h3>Manage My Account</h3>
@@ -160,7 +147,6 @@ export default function AccountProfile() {
             </div>
           </div>
 
-          {/* right form */}
           <form className="profile-edit-form" style={{ flex: 1, maxWidth: 820 }} onSubmit={handleSave}>
             <h1 className="profile__main-title">Edit Your Profile</h1>
 

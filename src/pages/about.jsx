@@ -11,7 +11,6 @@ const About = () => {
 
     const [current, setCurrent] = useState(0);
 
-  // Har safar ko‘rsatiladigan odamlar to‘plami (3 tadan)
   const slides = [
     [ { img: men, name: "Tom Cruise", role: "Founder & Chairman" },
       { img: women, name: "Emma Watson", role: "Managing Director" },
@@ -29,7 +28,7 @@ const About = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent(prev => (prev + 1) % slides.length);
-    }, 3000); // 3 sekundda almashadi
+    }, 3000); 
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -158,7 +157,6 @@ const About = () => {
 
     <section className="service">
           <div className="container">
-            {/* Service items */}
             <div className="service__items">
               <div className="service__item">
                 <img src={service1} alt="" />

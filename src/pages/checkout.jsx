@@ -12,13 +12,11 @@ const Checkout = () => {
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState(0);
 
-  // LocalStorage-dan cartni olish
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("cartItems")) || [];
     setItems(stored);
   }, []);
 
-  // Subtotal hisoblash
   const subtotal = items.reduce(
     (sum, item) => sum + item.price * (item.qty || 1),
     0
@@ -64,11 +62,9 @@ Umumiy summa: $${total.toFixed(2)}`);
         </div>
       </div>
 
-      {/* Billing Section */}
       <section className="billing">
         <div className="container">
           <div className="checkout__section">
-            {/* Billing Form */}
             <div className="billing__part">
               <form className="billing__form">
                 <h1 className="billing__title">Billing Details</h1>
@@ -91,7 +87,6 @@ Umumiy summa: $${total.toFixed(2)}`);
               </form>
             </div>
 
-            {/* Order Summary */}
             <div className="summary">
               <div className="summary__product-info">
                 <div className="summary__products">
@@ -133,7 +128,6 @@ Umumiy summa: $${total.toFixed(2)}`);
                   </div>
                 </div>
 
-                {/* Payment method */}
                 <div className="summary__payment-method">
                   <div className="bank__way">
                     <label className="bank-label">

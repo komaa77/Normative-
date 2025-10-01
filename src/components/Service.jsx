@@ -7,7 +7,6 @@ import up from "../assets/icons_arrow-up (1).svg";
 const Service = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // scroll hodisasini kuzatish
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 800) {
@@ -23,7 +22,6 @@ const Service = () => {
     };
   }, []);
 
-  // yuqoriga qaytarish funksiyasi
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -34,14 +32,12 @@ const Service = () => {
   return (
     <section className="service">
       <div className="container">
-        {/* Up button */}
         <div className={`up-button ${isVisible ? "show" : ""}`}>
           <button onClick={scrollToTop}>
             <img src={up} alt="up" />
           </button>
         </div>
 
-        {/* Service items */}
         <div className="service__items">
           <div className="service__item">
             <img src={service1} alt="" />
