@@ -85,6 +85,19 @@ Umumiy summa: $${total.toFixed(2)}`);
                   <input className="billing__input" type="email" required />
                 </div>
               </form>
+              <div class="billing__checkbox">
+                <label class="checkbox__label">
+                    <input class="checkbox__input" type="checkbox"/>
+                    <div class="checkmark">
+                        <span class="billing__icon">
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 6L6.25 11L15 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                                        
+                        </span>
+                    </div>
+                    <p class="checkbox__text">Save this information for faster check-out next time</p>
+                </label>
+                </div>
             </div>
 
             <div className="summary">
@@ -100,7 +113,7 @@ Umumiy summa: $${total.toFixed(2)}`);
                           <p className="summary__products-name">{item.name}</p>
                         </div>
                         <p className="summary__price">
-                          ${item.price} x {item.qty} = ${item.price * item.qty}
+                         ${item.price * item.qty}
                         </p>
                       </div>
                     ))
